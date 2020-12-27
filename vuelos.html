@@ -4,21 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Vuelos</title>
-</head>
-
-<body>
-    <h1> Controlador de vuelos</h1>
-    <button type="button" onclick="loadXMLDoc()"> Mostrar datos</button>
-    <div id="showDataDiv">
-    </div>
-    <script>
-        function loadXMLDoc() {
+    <link rel="stylesheet" href="styles.css">
+    <!--     <script>
+        function insertNewFlight(){
+            var code = document.getElementById("flightCode").value;
+            console.log(code);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     //Contendor para pintar los datos de los vuelos
                     var flightContainer = document.getElementById("showDataDiv");
-                    // Parso JSON para poder acceder a los datos del servidor y pintarlo en pantalla
+                    console.log(this.responseText);
+/*                     // Parso JSON para poder acceder a los datos del servidor y pintarlo en pantalla
                     var readFlight = JSON.parse(this.responseText);
                     var numberOfFlights = readFlight.numeroVuelos;
                     var arrayOfFlight = readFlight.vuelos;
@@ -31,13 +28,26 @@
                         dataParagraph.setAttribute("class", "data");
                         flightContainer.appendChild(dataParagraph);
                         console.log(arrayOfFlight[index].codigo);
-                    }
+                    } */
                 }
             };
-            xhttp.open("GET", "http://localhost/Javier/adat_vuelos/main/read_flight.php", true);
-            xhttp.send();
+            xhttp.open("POST", "http://localhost/Javier/adat_vuelos/main/write_flight.php", true);
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            var data = JSON.stringify({"peticion": "add","vuelo": {"codigo": "EJEMPLO", "origen": "BRUSELAS", "destino": "MADRID", "fecha": "2021-01-06", "hora": "17:30", "plazas_totales": 50, "plazas_disponibles": 10}
+});
+            xhttp.send(data);
         }
-    </script>
+    </script>  -->
+</head>
+
+<body>
+    <h1> Controlador de vuelos</h1>
+    <div id="showDataDiv">
+    </div>
+    <!--  <label> Codigo de vuelo</label>
+    <input type="text" id="flightCode" value="test">
+    <button type="button" onclick="insertNewFlight()"> Añadir</button> -->
+    <script src="script.js" charset="" UTF-8></script>
 </body>
 
 </html>
