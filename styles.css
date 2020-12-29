@@ -1,20 +1,31 @@
+/*----- ESTILO DEL CUERPO* -----*/
 body {
   align-self: center;
   font-family: Arial, Helvetica, sans-serif;
+ 
 }
+
+/*----- POSICIONAMIENTO DEL TITULO -----*/
 h1{
   text-align: center;
+  position:relative;
+  left:-5%;
 }
+
+/*----- ESTILO DE LA TABLA -----*/
 table {
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
   font-size: 12px;    
   margin: 45px;    
   text-align: center;
   border-collapse: collapse;
+ 
 }
 
+/*----- ESTILO DE LA CABECERA DE LA TABLA -----*/
 th {
-  font-size: 15px;
+  width: 250px;
+  font-size: 14px;
   font-weight: bold;
   padding: 8px;
   background: #b9c9fe;
@@ -23,10 +34,74 @@ th {
   color: #039;
 }
 
+/*----- ESTILO DEL CUERPO DE LA TABLA -----*/
 td{
+  width:250px;
   padding: 16px;
   background: #e8edff;
   border-bottom: 1px solid #fff;
   color: #669;
   border-top: 1px solid transparent;
+  overflow: auto;
+}
+
+/*----- AJUSTAR LA CABECERA Y EL CUERPO DE LA TABLA PARA AÑADIR EL SCROLL -----*/
+ thead,tbody {
+    display: block; 
+  }  
+tbody {
+    height: 100px;     
+    overflow-y: auto; 
+  }
+/*----- ALINERA LOS DIFERENTES TITULOS Y CAMPOS DE TEXTO CORRESPONDIENTES -----*/
+label{
+  width: 150px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+input{
+ display: inline-block;
+}
+
+/*----- CAPA QUE CONTINE CADA UNO DE LOS ELEMENTOS CORRESPONDIENTES A LA OPERACIONES QUE SE QUIEREN REALIZAR -----*/
+div#mainContainer{
+  width: 1450px;
+  align-items: center;
+  float: left;
+  position:relative;
+  margin-top: 32px;
+  left:10%;
+ 
+  /*----- A PARTIR DE AQUÍ, ESTÁN CADA UNA DE LAS CAPAS EN LAS QUE SE UBICAN LOS DISNTINTOS ELEMENTOS DE LAS OPERACIONES (LEER, INSERTAR ETC.)*/
+}
+div#inserDataDiv{
+  width:fit-content;
+  align-items: center;
+  float: left;
+  
+}
+div#deleteOneFlightDiv{
+  width:fit-content;
+  align-items: center;
+  float: left;
+  margin-left: 32px;
+}
+div#deleteAllDiv{
+  width:fit-content;
+  align-items: center;
+  float: left;
+  margin-left: 32px;
+}
+div#lookForAFightDiv{
+  width:fit-content;
+  align-items: center;
+  float: left;
+  margin-left: 32px;
+}
+div#updateDiv{
+  width:fit-content;
+  align-items: center;
+  float: left;
+  margin-left: 32px;
+
 }

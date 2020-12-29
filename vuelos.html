@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Vuelos</title>
+    <title>Vuelos Javier Borreguero</title>
     <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -14,10 +14,10 @@
     </div>
     <div id="dataSection">
         <table id="flightTable">
-            <thead>
+            <thead id="tableHeader">
                 <tr>
                     <th>Id</th>
-                    <th>Codigo</th>
+                    <th>Codigo</th> 
                     <th>Origen</th>
                     <th>Destino</th>
                     <th>fecha</th>
@@ -26,27 +26,51 @@
                     <th>Número de plazas disponibles</th>
                 </tr>
             </thead>
+            <div></div>
             <tbody id="tableContent">
             </tbody>
         </table>
     </div>
-    <div id="inserDataDiv">
-     <label> Codigo de vuelo</label>
-    <input type="text" id="flightCode" placeholder="Codigo de vuelo">
-    <label> Origen</label>
-    <input type="text" id="flightOrigin" placeholder="Origen">
-    <label> Destino</label>
-    <input type="text" id="flightDestiny" placeholder="Destino">
-    <label> Fecha</label>
-    <input type="text" id="flightDate" placeholder="Fecha">
-    <label> Hora</label>
-    <input type="text" id="flightTime" placeholder="Hora">
-    <label> Número de plazas totales</label>
-    <input type="text" id="flightTotalNumberPlaces" placeholder="Plazas totales">
-    <label> Número de plazas disponibles</label>
-    <input type="text" id="flightAvailablePlaces" placeholder="Plazas disponibles">
-    <button type="button" id="btnAddnewFlight" onclick="insertNewFlight()"> Añadir</button>
+    <div id="mainContainer">
+        <div id="inserDataDiv">
+            <label> Codigo de vuelo</label>
+            <input type="text" id="flightCode" placeholder="Codigo de vuelo">
+            </br>
+            <label> Origen</label>
+            <input type="text" id="flightOrigin" placeholder="Origen">
+            </br>
+            <label> Destino</label>
+            <input type="text" id="flightDestiny" placeholder="Destino">
+            </br>
+            <label> Fecha</label>
+            <input type="text" id="flightDate" placeholder="Fecha">
+            </br>
+            <label> Hora</label>
+            <input type="text" id="flightTime" placeholder="Hora">
+            </br>
+            <label> Número de plazas totales</label>
+            <input type="text" id="flightTotalNumberPlaces" placeholder="Plazas totales">
+            </br>
+            <label> Número de plazas disponibles</label>
+            <input type="text" id="flightAvailablePlaces" placeholder="Plazas disponibles">
+            </br>
+            <button type="button" id="btnAddnewFlight" onclick="insertNewFlight()"> Añadir</button>
+        </div>
+        <div id="deleteOneFlightDiv">
+            <button type="button" id="btnDeleteOneFLight"> Borrar un vuelo</button>
+        </div>
+        <div id="deleteAllDiv">
+            <button type="button" id="btnDeleteAllData"> Borrar todos los vuelos</button>
+        </div>
+        <div id="lookForAFightDiv">
+            <button type="button" id="btnlookForAFight"> Buscar un vuelo</button>
+            <input type="text" id="lookForAFight" placeholder="Ejemplo MADRID-BARCELONA">
+        </div>
+        <div id="updateDiv">
+            <button type="button" id="btnUpdate"> Modificar</button>
+        </div>
     </div>
+
     <script src="script.js" charset="" UTF-8></script>
 </body>
 

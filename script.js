@@ -12,6 +12,7 @@ function readFlight() {
             var arrayOfFlight = readFlight.vuelos;
             flightContainer.innerHTML = "";
             // Bucle que permite mostrar los datos en um párrafo
+            
             for (let index = 0; index < numberOfFlights; index++) {
                 var table = document.getElementById("tableContent");
                 var row = table.insertRow(0);
@@ -31,7 +32,7 @@ function readFlight() {
                 cell6.innerHTML = arrayOfFlight[index].hora;
                 cell7.innerHTML = arrayOfFlight[index].plazas_totales;
                 cell8.innerHTML = arrayOfFlight[index].plazas_disponibles;
-
+  
             }
         }
 
@@ -64,7 +65,7 @@ function insertNewFlight() {
             // Bucle que permite mostrar los datos en um párrafo
             for (let index = 0; index < numberOfFlights; index++) {
                 //Contendor para pintar los datos de los vuelos
-                var flightContainer = document.getElementById("sh");
+                var flightContainer = document.getElementById("showDataDiv");
                 readFlight();
             }
         }
