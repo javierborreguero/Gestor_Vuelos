@@ -1,6 +1,7 @@
 var xhttp = new XMLHttpRequest();
 /* ----- LECTURA DE DATOS ----- */
 xhttp.open("GET", "http://localhost/Javier/adat_vuelos/main/read_flight.php", true);
+xhttp.setRequestHeader("Content-Type", "application/json");
 function readFlight() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -43,6 +44,8 @@ xhttp.onload = readFlight();
 xhttp.send();
 
 function insertNewFlight() {
+    xhttp.open("POST", "http://localhost/Javier/adat_vuelos/main/write_flight.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
     var code = document.getElementById("flightCode").value;
     var origin = document.getElementById("flightOrigin").value;
     var destiny = document.getElementById("flightDestiny").value;
@@ -53,10 +56,8 @@ function insertNewFlight() {
     var insertFlight = { "codigo": code, "origen": origin, "destino": destiny, "fecha": date, "hora": time, "plazas_totales": totalNumberPlaces, "plazas_disponibles": availablePlaces };
     var insertRequest = { "peticion": "add", "vuelo": insertFlight };
     console.log(code);
-    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-
             console.log(this.responseText);
             // Parso JSON para poder acceder a los datos del servidor y pintarlo en pantalla
             var readFlight = JSON.parse(this.responseText);
@@ -70,8 +71,17 @@ function insertNewFlight() {
             }
         }
     };
-    xhttp.open("POST", "http://localhost/Javier/adat_vuelos/main/write_flight.php", true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
+
     var data = JSON.stringify(insertRequest);
     xhttp.send(data);
+}
+function deleteAllFlights(){
+    xhttp.open("GET", "http://localhost/Javier/adat_vuelos/main/delete_all.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    }
+    xhttp.send();
 }

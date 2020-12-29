@@ -24,8 +24,7 @@ table {
 
 /*----- ESTILO DE LA CABECERA DE LA TABLA -----*/
 th {
-  width: 250px;
-  font-size: 14px;
+  width: 200px;
   font-weight: bold;
   padding: 8px;
   background: #b9c9fe;
@@ -36,7 +35,7 @@ th {
 
 /*----- ESTILO DEL CUERPO DE LA TABLA -----*/
 td{
-  width:250px;
+  width:200px;
   padding: 16px;
   background: #e8edff;
   border-bottom: 1px solid #fff;
@@ -50,7 +49,7 @@ td{
     display: block; 
   }  
 tbody {
-    height: 100px;     
+    height: 250px;     
     overflow-y: auto; 
   }
 /*----- ALINERA LOS DIFERENTES TITULOS Y CAMPOS DE TEXTO CORRESPONDIENTES -----*/
@@ -69,7 +68,7 @@ div#mainContainer{
   align-items: center;
   float: left;
   position:relative;
-  margin-top: 32px;
+  margin-top: 16px;
   left:10%;
  
   /*----- A PARTIR DE AQUÍ, ESTÁN CADA UNA DE LAS CAPAS EN LAS QUE SE UBICAN LOS DISNTINTOS ELEMENTOS DE LAS OPERACIONES (LEER, INSERTAR ETC.)*/
