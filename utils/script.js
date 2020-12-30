@@ -15,7 +15,6 @@ function readFlight() {
             var arrayOfFlight = readFlight.vuelos;
             flightContainer.innerHTML = "";
             // Bucle que permite mostrar los datos en um párrafo
-            
             for (let index = 0; index < numberOfFlights; index++) {
                 var row = table.insertRow(0);
                 var cell1 = row.insertCell(0);
@@ -105,12 +104,39 @@ function deleteAllFlights(){
 function selectFlight(){
     xhttp.open("GET", "http://localhost/Javier/adat_vuelos/main/read_flight.php", true);
     xhttp.setRequestHeader("Content-Type", "application/json");
-    var code = document.getElementById("selectFlightCode").value;
-    console.log(code);
-    xhttp.onreadystatechange = function () {
+    var origin = document.getElementById("selectFlightOrigin").value;
+    var destiny = document.getElementById("selectFlightDestiny").value;
+      xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
+            var readFlight = JSON.parse(this.responseText);
+            var numberOfFlights = readFlight.numeroVuelos;
+            var arrayOfFlight = readFlight.vuelos;
+            // Bucle que permite mostrar los datos en um párrafo
+            for (let index = 0; index < numberOfFlights; index++) {
+                if((origin == arrayOfFlight[index].origen) && (destiny == arrayOfFlight[index].destino)){
+                    console.log("Has elegido el vuelo con origen " + arrayOfFlight[index].origen + " y destino " + arrayOfFlight[index].destino);
+                    while(table.rows.length > 0) {
+                        table.deleteRow(0);
+                   } 
+                   var row = table.insertRow(0);
+                   var cell1 = row.insertCell(0);
+                   var cell2 = row.insertCell(1);
+                   var cell3 = row.insertCell(2);
+                   var cell4 = row.insertCell(3);
+                   var cell5 = row.insertCell(4);
+                   var cell6 = row.insertCell(5);
+                   var cell7 = row.insertCell(6);
+                   cell1.innerHTML = arrayOfFlight[index].codigo;
+                   cell2.innerHTML = arrayOfFlight[index].origen;
+                   cell3.innerHTML = arrayOfFlight[index].destino;
+                   cell4.innerHTML = arrayOfFlight[index].fecha;
+                   cell5.innerHTML = arrayOfFlight[index].hora;
+                   cell6.innerHTML = arrayOfFlight[index].plazas_totales;
+                   cell7.innerHTML = arrayOfFlight[index].plazas_disponibles; 
+                }
+            }
         }
     }
     xhttp.send();
-}
+} 
