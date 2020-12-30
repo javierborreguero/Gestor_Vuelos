@@ -1,4 +1,6 @@
+/*----- CONTANTES A USAR */
 var xhttp = new XMLHttpRequest();
+var table = document.getElementById("tableContent");
 /* ----- LECTURA DE DATOS ----- */
 xhttp.open("GET", "http://localhost/Javier/adat_vuelos/main/read_flight.php", true);
 xhttp.setRequestHeader("Content-Type", "application/json");
@@ -15,7 +17,6 @@ function readFlight() {
             // Bucle que permite mostrar los datos en um párrafo
             
             for (let index = 0; index < numberOfFlights; index++) {
-                var table = document.getElementById("tableContent");
                 var row = table.insertRow(0);
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
@@ -24,17 +25,17 @@ function readFlight() {
                 var cell5 = row.insertCell(4);
                 var cell6 = row.insertCell(5);
                 var cell7 = row.insertCell(6);
-                var cell8 = row.insertCell(7);
-                cell1.innerHTML = arrayOfFlight[index].id;
-                cell2.innerHTML = arrayOfFlight[index].codigo;
-                cell3.innerHTML = arrayOfFlight[index].origen;
-                cell4.innerHTML = arrayOfFlight[index].destino;
-                cell5.innerHTML = arrayOfFlight[index].fecha;
-                cell6.innerHTML = arrayOfFlight[index].hora;
-                cell7.innerHTML = arrayOfFlight[index].plazas_totales;
-                cell8.innerHTML = arrayOfFlight[index].plazas_disponibles;
+               /* var cell8 = row.insertCell(7); */
+                cell1.innerHTML = arrayOfFlight[index].codigo;
+                cell2.innerHTML = arrayOfFlight[index].origen;
+                cell3.innerHTML = arrayOfFlight[index].destino;
+                cell4.innerHTML = arrayOfFlight[index].fecha;
+                cell5.innerHTML = arrayOfFlight[index].hora;
+                cell6.innerHTML = arrayOfFlight[index].plazas_totales;
+                cell7.innerHTML = arrayOfFlight[index].plazas_disponibles; 
   
             }
+
         }
 
 
@@ -57,9 +58,9 @@ function insertNewFlight() {
     var insertRequest = { "peticion": "add", "vuelo": insertFlight };
     console.log(code);
     xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            // Parso JSON para poder acceder a los datos del servidor y pintarlo en pantalla
+              // Parso JSON para poder acceder a los datos del servidor y pintarlo en pantalla
             var readFlight = JSON.parse(this.responseText);
             var numberOfFlights = readFlight.numeroVuelos;
             var arrayOfFlight = readFlight.vuelos;
@@ -68,16 +69,44 @@ function insertNewFlight() {
                 //Contendor para pintar los datos de los vuelos
                 var flightContainer = document.getElementById("showDataDiv");
                 readFlight();
-            }
-        }
+            } 
+        } 
     };
 
     var data = JSON.stringify(insertRequest);
     xhttp.send(data);
 }
-function deleteAllFlights(){
-    xhttp.open("GET", "http://localhost/Javier/adat_vuelos/main/delete_all.php", true);
+function deleteOneFlight() {
+    xhttp.open("POST", "http://localhost/Javier/adat_vuelos/main/delete_one_PHP.php", true);
     xhttp.setRequestHeader("Content-Type", "application/json");
+    var code = document.getElementById("deleteFlightCode").value;
+    var deleteFlight = { "codigo": code};
+    var deleteRequest = { "peticion": "delete", "vuelo": deleteFlight };
+    console.log(code);
+    xhttp.onreadystatechange = function () {
+         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        } 
+    };
+
+    var data = JSON.stringify(deleteRequest);
+    xhttp.send(data);
+}
+function deleteAllFlights(){
+    xhttp.open("POST", "http://localhost/Javier/adat_vuelos/main/delete_all.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    }
+    xhttp.send();
+}
+function selectFlight(){
+    xhttp.open("GET", "http://localhost/Javier/adat_vuelos/main/read_flight.php", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    var code = document.getElementById("selectFlightCode").value;
+    console.log(code);
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);

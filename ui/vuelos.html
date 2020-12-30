@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Vuelos Javier Borreguero</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="http://localhost/Javier/ADAT-UD4_A03_Vuelos_ClienteJS/utils/styles.css">
 
 </head>
 
@@ -16,9 +16,9 @@
         <table id="flightTable">
             <thead id="tableHeader">
                 <tr>
-                    <th>Id</th>
+                    <!-- <th>Id</th> -->
                     <th>Codigo</th> 
-                    <th>Origen</th>
+                     <th>Origen</th>
                     <th>Destino</th>
                     <th>Fecha</th>
                     <th>Hora</th>
@@ -57,21 +57,25 @@
             <button type="button" id="btnAddnewFlight" onclick="insertNewFlight()"> Añadir</button>
         </div>
         <div id="deleteOneFlightDiv">
-            <button type="button" id="btnDeleteOneFLight"> Borrar un vuelo</button>
+            <label> Codigo de vuelo</label>
+            <input type="text" id="deleteFlightCode" placeholder="Codigo de vuelo">
+            </br>
+            <button type="button" id="btnDeleteOneFLight" onclick="deleteOneFlight()"> Borrar un vuelo</button>
         </div>
         <div id="deleteAllDiv">
             <button type="button" id="btnDeleteAllData" onclick="deleteAllFlights()"> Borrar todos los vuelos</button>
         </div>
         <div id="lookForAFightDiv">
-            <button type="button" id="btnlookForAFight"> Buscar un vuelo</button>
-            <input type="text" id="lookForAFight" placeholder="Ejemplo MADRID-BARCELONA">
+            <label> Codigo de vuelo</label>
+            <input type="text" id="selectFlightCode" placeholder="Codigo de vuelo">
+            </br>
+            <button type="button" id="btnlookForAFight" onclick="selectFlight()"> Buscar un vuelo</button>
         </div>
         <div id="updateDiv">
             <button type="button" id="btnUpdate"> Modificar</button>
         </div>
     </div>
-
-    <script src="script.js" charset="" UTF-8></script>
+      <script src="http://localhost/Javier/ADAT-UD4_A03_Vuelos_ClienteJS/utils/script.js" charset="" UTF-8></script>
 </body>
 
 </html>
