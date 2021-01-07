@@ -54,20 +54,14 @@
         <form class="form-container">
           <h1>Añadir vuelo</h1> 
           <input type="text" id="flightCode" placeholder="Indique el Codigo de vuelo" required>
-          </br>
           <input type="text" id="flightOrigin" placeholder="Indique el Origen" required>
-          </br>
           <input type="text" id="flightDestiny" placeholder="Indique el Destino" required>
-          </br>
           <input type="text" id="flightDate" placeholder="Indique la Fecha" required>
-          </br>
           <input type="text" id="flightTime" placeholder="Indique la Hora" required>
-          </br>
           <input type="text" id="flightTotalNumberPlaces" placeholder="Indique las Plazas totales" required>
-          </br>
           <input type="text" id="flightAvailablePlaces" placeholder="Indique las Plazas disponibles" required>
           </br>
-          <button type="button" id="btn" onclick="insertNewFlight()">Guardar</button>
+          <button type="button" id="btn" onclick="insertNewFlight()">Aceptar</button>
           <button type="button" id="btnCancel" onclick="closeForm()">Cancelar</button>
         </form>
       </div>
@@ -76,7 +70,7 @@
           <h1>Borrar vuelo</h1> 
           <input type="text" id="deleteFlightCode" placeholder="Indique el Codigo de vuelo" required>
           </br>
-          <button type="button" id="btn" onclick="deleteOneFlight()">Guardar</button>
+          <button type="button" id="btn" onclick="deleteOneFlight()">Aceptar</button>
           <button type="button" id="btnCancel" onclick="closeForm()">Cancelar</button>
         </form>
       </div>
@@ -84,10 +78,9 @@
         <form class="form-container">
           <h1>Buscar vuelo</h1> 
           <input type="text" id="selectFlightOrigin" placeholder="Indique el Origen del vuelo" required>
-          </br>
           <input type="text" id="selectFlightDestiny" placeholder="Indique el Destino del vuelo"required>
           </br>
-          <button type="button" id="btn" onclick="selectFlight()">Guardar</button>
+          <button type="button" id="btn" onclick="selectFlight()">Aceptar</button>
           <button type="button" id="btnCancel" onclick="closeForm()">Cancelar</button>
         </form>
       </div>
@@ -96,7 +89,7 @@
           <h1>Modificar vuelo</h1> 
           <input type="text" id="updateFlightCode" placeholder="Indique el Codigo de vuelo" required>
           </br>
-          <button type="button" id="btn" onclick="openUpdateForm()">Guardar</button>
+          <button type="button" id="btn" onclick="openUpdateForm()">Aceptar</button>
           <button type="button" id="btnCancel" onclick="closeForm()">Cancelar</button>
         </form>
       </div>
@@ -104,23 +97,18 @@
   <form class="form-container">
     <h1>Modificar vuelo</h1>
     <input type="text" id="flightOriginToUpdate" placeholder="Indique el Origen" required>
-    </br>
     <input type="text" id="flightDestinyToUpdate" placeholder="Indique el Destino" required>
-    </br>
     <input type="text" id="flightDateToUpdate" placeholder="Indique la Fecha" required>
-    </br>
     <input type="text" id="flightTimeToUpdate"placeholder="Indique la Hora" required>
-    </br>
     <input type="text" id="flightTotalNumberPlacesToUpdate" placeholder="Plazas totales" required>
-    </br>
     <input type="text" id="flightAvailablePlacesToUpdate" placeholder="Plazas disponibles" required>
     </br>
-    <button type="button" id="btnSaveData" onclick="updateFlight()">Guardar</button>
+    <button type="button" id="btnSaveData" onclick="updateFlight()">Aceptar</button>
     <button type="button" id="btnCancel" onclick="closeForm()">Cancelar</button>
   </form>
 </div>
 </center>
-      <script src="http://localhost/Javier/ADAT-UD4_A03_Vuelos_ClienteJS/utils/script.js" charset="" UTF-8></script>
-
+<body>
+  <script src="http://localhost/Javier/ADAT-UD4_A03_Vuelos_ClienteJS/utils/script.js" charset="" UTF-8></script>
 </body>
 </html>
